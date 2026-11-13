@@ -41,6 +41,11 @@ public class PlayerMoveControls : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Move();
+    }
+
+    private void Move()
+    {
         Flip();
         rigidbody2D.linearVelocity = new Vector2(speed*gatherInput.valueX,rigidbody2D.linearVelocity.y);
     }
