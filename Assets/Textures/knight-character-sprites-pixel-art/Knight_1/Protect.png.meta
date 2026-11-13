@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: bd9a79766cd4f5d44b1e5042109dca50
+guid: 295a23a656c313f438188ab0953f7c0e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -608649214580511688
-    second: rubber_tiles_diff_1k_0
+      213: -3430851730698682744
+    second: Protect_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -102,13 +102,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rubber_tiles_diff_1k_0
+      name: Protect_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 23
         y: 0
-        width: 1024
-        height: 1024
+        width: 45
+        height: 61
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,8 +117,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 83cab1c93c4ad87f0800000000000000
-      internalID: -608649214580511688
+      spriteID: 88ebba2478a2360d0800000000000000
+      internalID: -3430851730698682744
       vertices: []
       indices: 
       edges: []
@@ -137,7 +137,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      rubber_tiles_diff_1k_0: -608649214580511688
+      Protect_0: -3430851730698682744
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
