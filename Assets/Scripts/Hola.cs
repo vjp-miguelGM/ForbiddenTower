@@ -11,7 +11,11 @@ public class Hola : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // Este comentario es del update Miguel
     }
 }
+<<<<<<< Updated upstream
 //Este es mi comentario Antonio
+=======
+// Este es mi comentario Miguel Gomez
+>>>>>>> Stashed changes
