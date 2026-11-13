@@ -11,6 +11,7 @@ public class GatherInput : MonoBehaviour
     private void Awake()
     {
         mycontrols = new Controls();//Creamos los controles
+        valueX = 0f;
     }
 
     private void OnEnable()
@@ -18,6 +19,13 @@ public class GatherInput : MonoBehaviour
         mycontrols.Player.Enable();//Habilitamos los controles
 
         mycontrols.Player.Move.performed += StartMove;
+        mycontrols.Player.Move.canceled += StopMove;
+    }
+
+    //Este método soluciona el problema de que se mueva sin parar
+    private void StopMove(InputAction.CallbackContext obj)
+    {
+        valueX = 0f;
     }
 
     private void StartMove(InputAction.CallbackContext ctx)
@@ -35,5 +43,12 @@ public class GatherInput : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnDisable()
+    {
+        mycontrols.Player.Disable();
+        mycontrols.Player.Move.performed -= StartMove;
+        mycontrols.Player.Move.canceled -= StopMove;
     }
 }

@@ -9,6 +9,18 @@ public class PlayerMoveControls : MonoBehaviour
     private GatherInput  gatherInput;
     private Rigidbody2D rigidbody2D;
 
+    private int direction = 1;
+
+
+    private void Flip()
+    {
+        if (gatherInput.valueX * direction <0)//mover el sprite hacia la dirección que lo mueve el player
+        {
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);    
+            direction = (int)Mathf.Sign(gatherInput.valueX);
+        }
+    }
+
     private void Awake()
     {
         gatherInput = GetComponent<GatherInput>();
@@ -29,6 +41,7 @@ public class PlayerMoveControls : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Flip();
         rigidbody2D.linearVelocity = new Vector2(speed*gatherInput.valueX,rigidbody2D.linearVelocity.y);
     }
 }
