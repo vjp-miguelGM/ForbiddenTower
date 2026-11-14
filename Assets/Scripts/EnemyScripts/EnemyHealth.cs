@@ -44,6 +44,7 @@ public class EnemyHealth : MonoBehaviour
 
     private void Die()
     {
+        if (WaveManager.Instance != null) WaveManager.Instance.EnemyDied();
         Destroy(gameObject);
     }
 }
