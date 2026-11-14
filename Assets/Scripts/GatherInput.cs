@@ -24,7 +24,7 @@ public class GatherInput : MonoBehaviour
         
         //Ponemos el salto
         mycontrols.Player.Jump.performed += StartJump;
-        mycontrols.Player.Jump.performed += StopJump;
+        mycontrols.Player.Jump.canceled += StopJump;
     }
 
     private void StartJump(InputAction.CallbackContext ctx)
@@ -35,8 +35,6 @@ public class GatherInput : MonoBehaviour
     {
         jumpInput = false;
     }
-
-    
 
     //Este método soluciona el problema de que se mueva sin parar
     private void StopMove(InputAction.CallbackContext obj)
@@ -67,6 +65,6 @@ public class GatherInput : MonoBehaviour
         mycontrols.Player.Move.performed -= StartMove;
         mycontrols.Player.Move.canceled -= StopMove;
         mycontrols.Player.Jump.performed -= StartJump;
-        mycontrols.Player.Jump.performed -= StopJump;
+        mycontrols.Player.Jump.canceled -= StopJump;
     }
 }

@@ -17,14 +17,16 @@ public class PlayerMoveControls : MonoBehaviour
     public Transform leftPoint; //Para pasarle en el inspector el gameobject Left Point de la jerarquía
     public Transform rightPoint; //Para pasarle en el inspector el gameobject Right Point de la jerarquía
     private bool grounded; //Para guardar si estamos tocando suelo o no
-      private void Flip()
+
+    private void Flip()
     {
-        if (gatherInput.valueX * direction <0)//mover el sprite hacia la dirección que lo mueve el player
+        if (gatherInput.valueX * direction < 0)//mover el sprite hacia la dirección que lo mueve el player
         {
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);    
             direction = (int)Mathf.Sign(gatherInput.valueX);
         }
     }
+
     private void CheckStatus()
     {//Lanzamos dos rayos hacia abajo
         RaycastHit2D leftCheckHit = Physics2D.Raycast(leftPoint.position, Vector2.down, rayLength, groundLayer);
@@ -37,7 +39,12 @@ public class PlayerMoveControls : MonoBehaviour
         {
             grounded = false;
         }
+        
+        Debug.DrawRay(leftPoint.position, Vector2.down * rayLength, Color.red);
+        Debug.DrawRay(rightPoint.position, Vector2.down * rayLength, Color.red);
+        Debug.Log("grounded: " + grounded + " | valueX: " + gatherInput.valueX + " | jump: " + gatherInput.jumpInput);
     }
+
     private void Awake()
     {
         gatherInput = GetComponent<GatherInput>();
@@ -47,20 +54,23 @@ public class PlayerMoveControls : MonoBehaviour
 
     private void Jump()
     {
-        if (grounded == true)
+        if (gatherInput.jumpInput) //Solo saltamos si el jugador pulsa salto
         {
-            rigidbody2D.linearVelocity = new Vector2(rigidbody2D.linearVelocity.x,jumpForce);
+            if (grounded)
+            {
+                rigidbody2D.linearVelocity = new Vector2(rigidbody2D.linearVelocity.x, jumpForce);
+            }
+            gatherInput.jumpInput = false; //Consumimos el input para que no se acumule
         }
-
-        grounded = false;
     }
 
     private void SetAnimatorValues()
     {
-        animator.SetFloat("Speed",Math.Abs(rigidbody2D.linearVelocity.x)) ;
+        animator.SetFloat("Speed", Math.Abs(rigidbody2D.linearVelocity.x));
         animator.SetFloat("vSpeed", rigidbody2D.linearVelocity.y);
         animator.SetBool("isGrounded", grounded);
     }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -83,7 +93,6 @@ public class PlayerMoveControls : MonoBehaviour
     private void Move()
     {
         Flip();
-        rigidbody2D.linearVelocity = new Vector2(speed*gatherInput.valueX,rigidbody2D.linearVelocity.y);
-        animator.SetFloat("Speed", rigidbody2D.linearVelocity.x);
+        rigidbody2D.linearVelocity = new Vector2(speed * gatherInput.valueX, rigidbody2D.linearVelocity.y);
     }
 }
