@@ -8,6 +8,7 @@ public class PlayerMoveControls : MonoBehaviour
     
     private GatherInput  gatherInput;
     private Rigidbody2D rigidbody2D;
+    private Animator animator;
 
     private int direction = 1;
 
@@ -25,8 +26,13 @@ public class PlayerMoveControls : MonoBehaviour
     {
         gatherInput = GetComponent<GatherInput>();
         rigidbody2D = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
+    private void SetAnimatorValues()
+    {
+        animator.SetFloat("Speed",Math.Abs(rigidbody2D.linearVelocity.x)) ;
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -36,7 +42,7 @@ public class PlayerMoveControls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        SetAnimatorValues();
     }
 
     private void FixedUpdate()
@@ -48,5 +54,6 @@ public class PlayerMoveControls : MonoBehaviour
     {
         Flip();
         rigidbody2D.linearVelocity = new Vector2(speed*gatherInput.valueX,rigidbody2D.linearVelocity.y);
+        animator.SetFloat("Speed", rigidbody2D.linearVelocity.x);
     }
 }
