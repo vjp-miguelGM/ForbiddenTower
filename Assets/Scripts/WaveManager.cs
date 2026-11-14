@@ -13,7 +13,10 @@ public class WaveManager : MonoBehaviour
     public float timeBeforeFirstWave = 2f;
 
     [Header("Entre rondas")]
-    public float timeInTowerToStart = 3f;   // segundos que el player debe estar en la torre
+    public float timeInTowerToStart = 3f;   // (ya no se usa, se puede dejar)
+
+    [Header("Mejoras")]
+    public UpgradePanel upgradePanel;       // arrastra aquí el HUD de mejoras
 
     [Header("HUD")]
     public TMP_Text objectiveText;          // arrastra aquí VolverTorre
@@ -65,13 +68,20 @@ public class WaveManager : MonoBehaviour
             Debug.Log("<color=green>Ronda " + CurrentWave + " superada. Ve a la torre.</color>");
             ShowObjective("Vuelve a la torre");
 
-            // El player debe estar en la torre 3 s seguidos; si sale, se reinicia la cuenta
-            float timer = 0f;
-            while (timer < timeInTowerToStart)
+            // 1) Esperar a que el player llegue a la torre
+            yield return new WaitUntil(() => towerZone != null && towerZone.PlayerInside);
+
+            // 2) Mostrar el panel de mejoras y esperar a que elija una
+            ShowObjective("");
+            if (upgradePanel != null)
             {
-                if (towerZone != null && towerZone.PlayerInside) timer += Time.deltaTime;
-                else timer = 0f;
-                yield return null;
+                bool chosen = false;
+                upgradePanel.Show(index =>
+                {
+                    Debug.Log("Mejora elegida: " + index);
+                    chosen = true;
+                });
+                yield return new WaitUntil(() => chosen);
             }
         }
 

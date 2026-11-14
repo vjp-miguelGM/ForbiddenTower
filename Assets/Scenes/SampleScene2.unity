@@ -202,19 +202,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 121094095}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5598310697894145167, guid: 9d4c30d094bcbb847be793ce321377c9, type: 3}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: RestartGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &121094095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39463,19 +39451,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1368309088}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5598310697894145167, guid: 9d4c30d094bcbb847be793ce321377c9, type: 3}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: RestartGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1368309088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47987,19 +47963,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1595644841}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5598310697894145167, guid: 9d4c30d094bcbb847be793ce321377c9, type: 3}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: RestartGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1595644841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48060,7 +48024,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2517357080089806007, guid: 0a3fcbb5a6e95e247bf838a7e309cb01, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3877544224655853730, guid: 0a3fcbb5a6e95e247bf838a7e309cb01, type: 3}
       propertyPath: m_Pivot.x
@@ -48167,13 +48131,37 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3877544224655853730, guid: 0a3fcbb5a6e95e247bf838a7e309cb01, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1595644839}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2517357080089806007, guid: 0a3fcbb5a6e95e247bf838a7e309cb01, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1811195150}
   m_SourcePrefab: {fileID: 100100000, guid: 0a3fcbb5a6e95e247bf838a7e309cb01, type: 3}
 --- !u!224 &1811195148 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3877544224655853730, guid: 0a3fcbb5a6e95e247bf838a7e309cb01, type: 3}
   m_PrefabInstance: {fileID: 1811195147}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1811195149 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2517357080089806007, guid: 0a3fcbb5a6e95e247bf838a7e309cb01, type: 3}
+  m_PrefabInstance: {fileID: 1811195147}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1811195150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811195149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ad4bc3c737797f448cf8a89eeb629d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradePanel
+  optionButtons:
+  - {fileID: 121094094}
+  - {fileID: 1368309087}
+  - {fileID: 1595644840}
 --- !u!114 &1826048079 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2143043372156414396, guid: 20a6ea433c42edd40b850656776853ea, type: 3}
@@ -48629,6 +48617,10 @@ PrefabInstance:
       value: WaveManager
       objectReference: {fileID: 0}
     - target: {fileID: 9089617485345898890, guid: 0905f7308ae9e77489076ddd77bc56bd, type: 3}
+      propertyPath: upgradePanel
+      value: 
+      objectReference: {fileID: 1811195150}
+    - target: {fileID: 9089617485345898890, guid: 0905f7308ae9e77489076ddd77bc56bd, type: 3}
       propertyPath: objectiveText
       value: 
       objectReference: {fileID: 2306732320299045978}
@@ -48713,6 +48705,10 @@ PrefabInstance:
     - target: {fileID: 5742159487148128961, guid: 367f833f699f9924caa2db5cd885ba4b, type: 3}
       propertyPath: m_Name
       value: EnemySpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 5742159487148128961, guid: 367f833f699f9924caa2db5cd885ba4b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6420870432918757380, guid: 367f833f699f9924caa2db5cd885ba4b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -48821,7 +48817,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6627861310857910135, guid: e694f1d457c0a0146a2cdc93084d4d4f, type: 3}
       propertyPath: orthographic size
-      value: 3.375
+      value: 4.65625
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
