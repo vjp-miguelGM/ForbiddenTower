@@ -108,7 +108,7 @@ Animator:
   m_GameObject: {fileID: 3560020461295205053}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 485030e6b73d8f544aefec89b253c2c9, type: 2}
+  m_Controller: {fileID: 9100000, guid: f0b46b0c84f25394bb33f8b8fb62ec04, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -226,3 +226,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth4
   maxHealth: 30
+  knockbackDuration: 0.25
