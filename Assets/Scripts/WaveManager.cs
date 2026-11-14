@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using TMPro;
 
 public class WaveManager : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class WaveManager : MonoBehaviour
 
     [Header("Entre rondas")]
     public float timeInTowerToStart = 3f;   // segundos que el player debe estar en la torre
+
+    [Header("HUD")]
+    public TMP_Text objectiveText;          // arrastra aquí VolverTorre
 
     public int CurrentWave { get; private set; }
 
@@ -40,6 +44,7 @@ public class WaveManager : MonoBehaviour
 
     private IEnumerator WaveLoop()
     {
+        ShowObjective(""); // oculto hasta que empiece la primera ronda
         yield return new WaitForSeconds(timeBeforeFirstWave);
 
         for (CurrentWave = 1; CurrentWave <= totalWaves; CurrentWave++)
@@ -49,9 +54,14 @@ public class WaveManager : MonoBehaviour
             // La ronda acaba cuando han salido todos y no queda ninguno vivo
             yield return new WaitUntil(() => pendingToSpawn <= 0 && alive <= 0);
 
-            if (CurrentWave == totalWaves) break;
+            if (CurrentWave == totalWaves)
+            {
+                ShowObjective(""); // última ronda: sin mensaje
+                break;
+            }
 
             Debug.Log("<color=green>Ronda " + CurrentWave + " superada. Ve a la torre.</color>");
+            ShowObjective("Vuelve a la torre");
 
             // El player debe estar en la torre 3 s seguidos; si sale, se reinicia la cuenta
             float timer = 0f;
@@ -74,10 +84,20 @@ public class WaveManager : MonoBehaviour
 
         Debug.Log("<color=cyan>Ronda " + CurrentWave + ": " + perSpawner + " enemigos por spawner</color>");
 
+        ShowObjective("Acaba con los pecadores");
+
         foreach (EnemySpawner spawner in spawners)
         {
             spawner.StartWave(perSpawner);
         }
+    }
+
+    private void ShowObjective(string message)
+    {
+        if (objectiveText == null) return;
+
+        objectiveText.gameObject.SetActive(!string.IsNullOrEmpty(message));
+        objectiveText.text = message;
     }
 
     // Lo llama el spawner al crear un enemigo
