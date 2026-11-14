@@ -47054,6 +47054,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 67.1533
       objectReference: {fileID: 0}
+    - target: {fileID: 7256577728048074563, guid: 20a6ea433c42edd40b850656776853ea, type: 3}
+      propertyPath: m_Name
+      value: TextNumberOfEnemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
