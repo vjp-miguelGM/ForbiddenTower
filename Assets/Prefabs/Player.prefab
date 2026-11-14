@@ -191,12 +191,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87f44220222425b49973b6968ad966b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMoveControls
-  speed: 2.14
-  jumpForce: 17.96
-  "da\xF1o": 1
-  attackRadius: 0.6
+  speed: 4
+  jumpForce: 5
+  "da\xF1o": 6
+  attackRadius: 1
   attackPoint: {fileID: 1553964810663849599}
-  rayLength: 0.3
+  rayLength: 0.5
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -328,7 +328,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6286095987416024644}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 920e3617fe82a5a438e87d59889012f0, type: 3}
   m_Name: 
