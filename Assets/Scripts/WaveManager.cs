@@ -17,6 +17,7 @@ public class WaveManager : MonoBehaviour
 
     [Header("HUD")]
     public TMP_Text objectiveText;          // arrastra aquí VolverTorre
+    public TMP_Text enemyCountText;         // arrastra aquí el texto de EnemyCount
 
     public int CurrentWave { get; private set; }
 
@@ -45,6 +46,7 @@ public class WaveManager : MonoBehaviour
     private IEnumerator WaveLoop()
     {
         ShowObjective(""); // oculto hasta que empiece la primera ronda
+        if (enemyCountText != null) enemyCountText.text = "0";
         yield return new WaitForSeconds(timeBeforeFirstWave);
 
         for (CurrentWave = 1; CurrentWave <= totalWaves; CurrentWave++)
@@ -81,6 +83,7 @@ public class WaveManager : MonoBehaviour
     {
         int perSpawner = baseEnemiesPerSpawner + (CurrentWave - 1) * increasePerWave;
         pendingToSpawn = perSpawner * spawners.Length;
+        UpdateEnemyCount(); // muestra el total de la horda al empezar
 
         Debug.Log("<color=cyan>Ronda " + CurrentWave + ": " + perSpawner + " enemigos por spawner</color>");
 
@@ -100,16 +103,25 @@ public class WaveManager : MonoBehaviour
         objectiveText.text = message;
     }
 
+    private void UpdateEnemyCount()
+    {
+        if (enemyCountText == null) return;
+        enemyCountText.text = (alive + pendingToSpawn).ToString();
+    }
+
     // Lo llama el spawner al crear un enemigo
     public void EnemySpawned()
     {
         pendingToSpawn--;
         alive++;
+        // El total (vivos + pendientes) no cambia al salir un enemigo,
+        // así que no hace falta actualizar el contador aquí
     }
 
     // Lo llama EnemyHealth al morir
     public void EnemyDied()
     {
         alive--;
+        UpdateEnemyCount(); // resta uno por cada enemigo muerto
     }
 }
