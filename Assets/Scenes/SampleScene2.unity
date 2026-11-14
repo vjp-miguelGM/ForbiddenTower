@@ -47111,38 +47111,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD
       objectReference: {fileID: 0}
-    - target: {fileID: 989024445558595804, guid: 20a6ea433c42edd40b850656776853ea, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 989024445558595804, guid: 20a6ea433c42edd40b850656776853ea, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 989024445558595804, guid: 20a6ea433c42edd40b850656776853ea, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 989024445558595804, guid: 20a6ea433c42edd40b850656776853ea, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2096028799956532686, guid: 20a6ea433c42edd40b850656776853ea, type: 3}
-      propertyPath: m_VerticalAlignment
-      value: 512
-      objectReference: {fileID: 0}
-    - target: {fileID: 2096028799956532686, guid: 20a6ea433c42edd40b850656776853ea, type: 3}
-      propertyPath: m_HorizontalAlignment
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2143043372156414396, guid: 20a6ea433c42edd40b850656776853ea, type: 3}
-      propertyPath: m_FillAmount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3609538911240442785, guid: 20a6ea433c42edd40b850656776853ea, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 67.1533
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
