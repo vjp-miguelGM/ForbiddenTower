@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-
+using UnityEngine.InputSystem; // añádelo arriba del todo, con los otros using
 public class PlayerMoveControls : MonoBehaviour
 {
 
@@ -10,7 +10,9 @@ public class PlayerMoveControls : MonoBehaviour
     private GatherInput  gatherInput;
     private Rigidbody2D rigidbody2D;
     private Animator animator;
-
+    public int daño = 1;
+    public float attackRadius = 0.6f;
+    public Transform attackPoint;
     private int direction = 1;
     public float rayLength; //Longitud de los rayos que lanzaremos hacia abajo
     public LayerMask groundLayer; //Para seleccionar en el inspector la capa Ground
@@ -71,6 +73,16 @@ public class PlayerMoveControls : MonoBehaviour
         animator.SetBool("isGrounded", grounded);
     }
 
+
+    private void Attack()
+    {
+        if (Keyboard.current.fKey.wasPressedThisFrame)
+        {
+            animator.SetTrigger("Attack");
+        }
+    }
+
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -81,6 +93,7 @@ public class PlayerMoveControls : MonoBehaviour
     void Update()
     {
         SetAnimatorValues();
+        Attack();
     }
 
     private void FixedUpdate()
