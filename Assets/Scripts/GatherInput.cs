@@ -2,12 +2,13 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class GatherInput : MonoBehaviour
 {
     
     private Controls mycontrols;
     public float valueX;
-
+    public bool jumpInput;
     private void Awake()
     {
         mycontrols = new Controls();//Creamos los controles
@@ -20,7 +21,22 @@ public class GatherInput : MonoBehaviour
 
         mycontrols.Player.Move.performed += StartMove;
         mycontrols.Player.Move.canceled += StopMove;
+        
+        //Ponemos el salto
+        mycontrols.Player.Jump.performed += StartJump;
+        mycontrols.Player.Jump.performed += StopJump;
     }
+
+    private void StartJump(InputAction.CallbackContext ctx)
+    {
+        jumpInput = true;
+    }
+    private void StopJump(InputAction.CallbackContext ctx)
+    {
+        jumpInput = false;
+    }
+
+    
 
     //Este método soluciona el problema de que se mueva sin parar
     private void StopMove(InputAction.CallbackContext obj)
@@ -50,5 +66,7 @@ public class GatherInput : MonoBehaviour
         mycontrols.Player.Disable();
         mycontrols.Player.Move.performed -= StartMove;
         mycontrols.Player.Move.canceled -= StopMove;
+        mycontrols.Player.Jump.performed -= StartJump;
+        mycontrols.Player.Jump.performed -= StopJump;
     }
 }
