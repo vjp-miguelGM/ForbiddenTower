@@ -155,3 +155,5 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   healthBarFill: {fileID: 0}
+  destroyEffectPrefab: {fileID: 8738406909357075751, guid: 7b6c6223619bd3a42a019c358997849f, type: 3}
+  hudGameOver: {fileID: 0}

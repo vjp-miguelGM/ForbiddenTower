@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +9,7 @@ public class Tower : MonoBehaviour
 
     public Image healthBarFill;
     public GameObject destroyEffectPrefab;   // prefab de partículas (Smoke)
-    public GameObject hudGameOver;           // arrastra aquí HUDGameOver
+    public float gameOverDelay = 1f;         // segundos para ver la explosión
 
     private bool destroyed;
 
@@ -28,11 +29,11 @@ public class Tower : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            DestroyTower();
+            StartCoroutine(DestroyTowerRoutine());
         }
     }
 
-    private void DestroyTower()
+    private IEnumerator DestroyTowerRoutine()
     {
         destroyed = true;
 
@@ -41,16 +42,23 @@ public class Tower : MonoBehaviour
             Instantiate(destroyEffectPrefab, transform.position, Quaternion.identity);
         }
 
-        if (hudGameOver != null)
-        {
-            hudGameOver.SetActive(true);
-        }
-
         // Oculta la torre sin destruirla (funciona aunque el sprite esté en un hijo)
         foreach (SpriteRenderer sr in GetComponentsInChildren<SpriteRenderer>())
             sr.enabled = false;
         foreach (Collider2D col in GetComponentsInChildren<Collider2D>())
             col.enabled = false;
+
+        // Espera para que se vea la explosión
+        yield return new WaitForSeconds(gameOverDelay);
+
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.GameOver();
+        }
+        else
+        {
+            Debug.LogError("Tower: no hay ningún GameManager en la escena");
+        }
     }
 
     private void UpdateHealthBar()
