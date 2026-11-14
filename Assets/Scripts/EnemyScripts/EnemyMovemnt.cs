@@ -10,12 +10,14 @@ public class EnemyMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
     private bool hasAnimator;
+    private EnemyHealth health;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         hasAnimator = animator != null;
+        health = GetComponent<EnemyHealth>();
     }
 
     private void Start()
@@ -34,6 +36,9 @@ public class EnemyMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if (target == null) return;
+        
+        //Durante el empujon no tocamos la velocidad
+        if (health !=null && health.IsKnockedBack) return;
 
         float distanceX = target.position.x - transform.position.x;
         float moveX = 0f;

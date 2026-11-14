@@ -20,7 +20,8 @@ public class PlayerMoveControls : MonoBehaviour
     public Transform rightPoint; //Para pasarle en el inspector el gameobject Right Point de la jerarquía
     private bool grounded; //Para guardar si estamos tocando suelo o no
     public LayerMask enemyLayers;
-
+    public float knockbackForce = 6f;
+    
     private void Flip()
     {
         if (gatherInput.valueX * direction < 0)//mover el sprite hacia la dirección que lo mueve el player
@@ -88,6 +89,9 @@ public class PlayerMoveControls : MonoBehaviour
                 if (enemyHealth != null)
                 {
                     enemyHealth.TakeDamage(daño);
+                    // Dirección: desde el player hacia el enemigo, solo en horizontal
+                    float dir = Mathf.Sign(enemy.transform.position.x - transform.position.x);
+                    enemyHealth.Knockback(new Vector2(dir, 0.3f), knockbackForce);
                 }
             }
         }
