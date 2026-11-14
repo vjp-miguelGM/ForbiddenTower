@@ -103,12 +103,18 @@ public class PlayerMoveControls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.Instance != null && GameManager.Instance.IsGameOver) return;
         SetAnimatorValues();
         Attack();
     }
 
     private void FixedUpdate()
     {
+        if (GameManager.Instance != null && GameManager.Instance.IsGameOver)
+        {
+            rigidbody2D.linearVelocity = Vector2.zero; // se queda quieto
+            return;
+        }
         CheckStatus();
         Move();
         Jump();

@@ -25,7 +25,10 @@ public class Tower : MonoBehaviour
         if (currentHealth <= 0)
         {
             Debug.Log("La torre ha caído");
-            // Aquí irá el game over
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.GameOver();
+            }
         }
     }
 
