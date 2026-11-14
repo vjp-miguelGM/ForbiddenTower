@@ -1,12 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
     [Header("HUD of GAME OVER")]
-    public GameObject gameOverPanel; // panel de Game Over, desactivado al inicio
+    public GameObject gameOverPanel;     // panel de Game Over, desactivado al inicio
+    public TMP_Text roundsText;          // arrastra aquí "Texto Rondas"
 
     public bool IsGameOver { get; private set; }
 
@@ -29,6 +31,13 @@ public class GameManager : MonoBehaviour
         if (IsGameOver) return; // evita que se llame dos veces
 
         IsGameOver = true;
+
+        // Concatenamos el texto con las oleadas aguantadas
+        if (roundsText != null && WaveManager.Instance != null)
+        {
+            roundsText.text = "Oleadas aguantadas: " + WaveManager.Instance.WavesSurvived;
+        }
+
         Time.timeScale = 0f; // el juego se para
 
         if (gameOverPanel != null)

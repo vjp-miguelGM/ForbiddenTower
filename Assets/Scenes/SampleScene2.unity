@@ -39360,6 +39360,10 @@ PrefabInstance:
       value: GameManager
       objectReference: {fileID: 0}
     - target: {fileID: 5598310697894145167, guid: 9d4c30d094bcbb847be793ce321377c9, type: 3}
+      propertyPath: roundsText
+      value: 
+      objectReference: {fileID: 1433202990}
+    - target: {fileID: 5598310697894145167, guid: 9d4c30d094bcbb847be793ce321377c9, type: 3}
       propertyPath: gameOverPanel
       value: 
       objectReference: {fileID: 5991090981485169899}
@@ -47875,6 +47879,17 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!114 &1433202990 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 305699146666446486, guid: 0a3fcbb5a6e95e247bf838a7e309cb01, type: 3}
+  m_PrefabInstance: {fileID: 5991090981485169898}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!4 &1507774016 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8780879347744449536, guid: 8240a201f0d2f9940b49b7d7dcfe5589, type: 3}
@@ -48920,8 +48935,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4921851198656156261, guid: 0a3fcbb5a6e95e247bf838a7e309cb01, type: 3}
-      propertyPath: m_UiScaleMode
+    - target: {fileID: 4533410701538031583, guid: 0a3fcbb5a6e95e247bf838a7e309cb01, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 356.7325
+      objectReference: {fileID: 0}
+    - target: {fileID: 4533410701538031583, guid: 0a3fcbb5a6e95e247bf838a7e309cb01, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 99.5717
+      objectReference: {fileID: 0}
+    - target: {fileID: 4533410701538031583, guid: 0a3fcbb5a6e95e247bf838a7e309cb01, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4533410701538031583, guid: 0a3fcbb5a6e95e247bf838a7e309cb01, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 4.9308
+      objectReference: {fileID: 0}
+    - target: {fileID: 8481027764141758084, guid: 0a3fcbb5a6e95e247bf838a7e309cb01, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
