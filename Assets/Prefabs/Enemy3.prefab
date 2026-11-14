@@ -13,7 +13,10 @@ GameObject:
   - component: {fileID: 2208370970820293966}
   - component: {fileID: 3286014407278384256}
   - component: {fileID: 125855597735007073}
-  m_Layer: 0
+  - component: {fileID: -1820156759032765090}
+  - component: {fileID: -1557782073308919498}
+  - component: {fileID: 3018042867551645035}
+  m_Layer: 9
   m_Name: Enemy3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,8 +83,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 798273431
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -4940556997623338620, guid: f40b2233aa4c4d34dba6a5d31f68123c, type: 3}
@@ -181,3 +184,45 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-1820156759032765090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3560020461295205053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b828c25909e17e47a8050f057cafb1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
+  damage: 10
+  attackCooldown: 1.5
+--- !u!114 &-1557782073308919498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3560020461295205053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 942fcb68663f2254d9a8103b646b097b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyMovemnt
+  speed: 4
+  stopDistance: 2
+  spriteFacesRight: 1
+--- !u!114 &3018042867551645035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3560020461295205053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 974726d204f6f704b99a8b0ad0432122, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth4
+  maxHealth: 30
