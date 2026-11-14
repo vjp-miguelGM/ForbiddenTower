@@ -346,7 +346,7 @@ GameObject:
   - component: {fileID: 4597152403455374956}
   - component: {fileID: 2096028799956532686}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: TextNumberOfEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -369,7 +369,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 8.8382, y: -25}
-  m_SizeDelta: {x: 209.1618, y: 50}
+  m_SizeDelta: {x: 67.1533, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &4597152403455374956
 CanvasRenderer:
@@ -433,8 +433,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_characterHorizontalScale: 1
