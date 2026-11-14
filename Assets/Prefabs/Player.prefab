@@ -178,6 +178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GatherInput
   valueX: 1.5
   jumpInput: 0
+  attackInput: 0
 --- !u!114 &6917341819752538121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,13 +195,16 @@ MonoBehaviour:
   jumpForce: 17.96
   "da\xF1o": 1
   attackRadius: 0.6
-  attackPoint: {fileID: 0}
+  attackPoint: {fileID: 1553964810663849599}
   rayLength: 0.3
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
   leftPoint: {fileID: 1724266122992511655}
   rightPoint: {fileID: 5657691910390149879}
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!50 &6562543541975195871
 Rigidbody2D:
   serializedVersion: 5
@@ -334,7 +338,7 @@ MonoBehaviour:
   attackDamage: 10
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   attackRate: 2
 --- !u!1 &8496400331812763011
 GameObject:

@@ -27,7 +27,7 @@
                     "priority": 0
                 },
                 {
-                    "name": "Ataque",
+                    "name": "Attack",
                     "type": "Button",
                     "id": "686991b9-82d9-44fc-bc47-8616ed7b1977",
                     "expectedControlType": "",
@@ -122,7 +122,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Ataque",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

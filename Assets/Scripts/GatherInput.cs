@@ -9,6 +9,7 @@ public class GatherInput : MonoBehaviour
     private Controls mycontrols;
     public float valueX;
     public bool jumpInput;
+    public bool attackInput;
     private void Awake()
     {
         mycontrols = new Controls();//Creamos los controles
@@ -25,6 +26,9 @@ public class GatherInput : MonoBehaviour
         //Ponemos el salto
         mycontrols.Player.Jump.performed += StartJump;
         mycontrols.Player.Jump.canceled += StopJump;
+
+        //Ponemos el ataque (tecla F)
+        mycontrols.Player.Attack.performed += StartAttack;
     }
 
     private void StartJump(InputAction.CallbackContext ctx)
@@ -34,6 +38,11 @@ public class GatherInput : MonoBehaviour
     private void StopJump(InputAction.CallbackContext ctx)
     {
         jumpInput = false;
+    }
+
+    private void StartAttack(InputAction.CallbackContext ctx)
+    {
+        attackInput = true; // PlayerAttack lo consume y lo pone a false
     }
 
     //Este método soluciona el problema de que se mueva sin parar
@@ -66,5 +75,6 @@ public class GatherInput : MonoBehaviour
         mycontrols.Player.Move.canceled -= StopMove;
         mycontrols.Player.Jump.performed -= StartJump;
         mycontrols.Player.Jump.canceled -= StopJump;
+        mycontrols.Player.Attack.performed -= StartAttack;
     }
 }

@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -14,19 +13,27 @@ public class PlayerAttack : MonoBehaviour
     private float nextAttackTime = 0f;
 
     private Animator animator;
+    private GatherInput gatherInput;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        gatherInput = GetComponent<GatherInput>();
     }
 
     private void Update()
     {
-        if (Time.time < nextAttackTime) return;
-
-        // Clic izquierdo
-        if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
+        // Si pulsas F durante el cooldown no se acumula el ataque
+        if (Time.time < nextAttackTime)
         {
+            gatherInput.attackInput = false;
+            return;
+        }
+
+        // Tecla F (definida en el asset Controls, acción Attack)
+        if (gatherInput.attackInput)
+        {
+            gatherInput.attackInput = false; // consumimos el input
             nextAttackTime = Time.time + 1f / attackRate;
 
             if (animator != null)

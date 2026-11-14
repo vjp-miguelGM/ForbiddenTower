@@ -19,6 +19,7 @@ public class PlayerMoveControls : MonoBehaviour
     public Transform leftPoint; //Para pasarle en el inspector el gameobject Left Point de la jerarquía
     public Transform rightPoint; //Para pasarle en el inspector el gameobject Right Point de la jerarquía
     private bool grounded; //Para guardar si estamos tocando suelo o no
+    public LayerMask enemyLayers;
 
     private void Flip()
     {
@@ -76,9 +77,19 @@ public class PlayerMoveControls : MonoBehaviour
 
     private void Attack()
     {
-        if (Keyboard.current.fKey.wasPressedThisFrame)
+        if (Keyboard.current != null && Keyboard.current.fKey.wasPressedThisFrame)
         {
             animator.SetTrigger("Attack");
+
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRadius, enemyLayers);
+            foreach (Collider2D enemy in hitEnemies)
+            {
+                EnemyHealth enemyHealth = enemy.GetComponentInParent<EnemyHealth>();
+                if (enemyHealth != null)
+                {
+                    enemyHealth.TakeDamage(daño);
+                }
+            }
         }
     }
 
