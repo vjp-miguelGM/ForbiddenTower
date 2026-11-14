@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1724266122992511655}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: 'Left Point '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 5152359421420385993}
   - component: {fileID: 4858397267133825367}
   - component: {fileID: 5208942671630087430}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -290,7 +290,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5657691910390149879}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Right Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
