@@ -38507,41 +38507,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2494819430423346929, guid: 52270bdff83e5f040a079ad849cee5c2, type: 3}
-      propertyPath: m_Size.x
-      value: 15.022524
-      objectReference: {fileID: 0}
-    - target: {fileID: 2494819430423346929, guid: 52270bdff83e5f040a079ad849cee5c2, type: 3}
-      propertyPath: m_Size.y
-      value: 25.628187
-      objectReference: {fileID: 0}
-    - target: {fileID: 2494819430423346929, guid: 52270bdff83e5f040a079ad849cee5c2, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.7324619
-      objectReference: {fileID: 0}
-    - target: {fileID: 2494819430423346929, guid: 52270bdff83e5f040a079ad849cee5c2, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.14649677
-      objectReference: {fileID: 0}
+    - target: {fileID: 4603632732466355948, guid: 52270bdff83e5f040a079ad849cee5c2, type: 3}
+      propertyPath: healthBarFill
+      value: 
+      objectReference: {fileID: 1826048079}
     - target: {fileID: 4777770789045313024, guid: 52270bdff83e5f040a079ad849cee5c2, type: 3}
       propertyPath: m_Name
       value: Tower
-      objectReference: {fileID: 0}
-    - target: {fileID: 4777770789045313024, guid: 52270bdff83e5f040a079ad849cee5c2, type: 3}
-      propertyPath: m_TagString
-      value: Tower
-      objectReference: {fileID: 0}
-    - target: {fileID: 7967509076662357920, guid: 52270bdff83e5f040a079ad849cee5c2, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.19905281
-      objectReference: {fileID: 0}
-    - target: {fileID: 7967509076662357920, guid: 52270bdff83e5f040a079ad849cee5c2, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.19905281
-      objectReference: {fileID: 0}
-    - target: {fileID: 7967509076662357920, guid: 52270bdff83e5f040a079ad849cee5c2, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.19905281
       objectReference: {fileID: 0}
     - target: {fileID: 7967509076662357920, guid: 52270bdff83e5f040a079ad849cee5c2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -46973,6 +46945,17 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!114 &1826048079 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2143043372156414396, guid: 20a6ea433c42edd40b850656776853ea, type: 3}
+  m_PrefabInstance: {fileID: 2306732320299045976}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1 &2083794939
 GameObject:
   m_ObjectHideFlags: 0
@@ -47110,6 +47093,30 @@ PrefabInstance:
     - target: {fileID: 539475619569092818, guid: 20a6ea433c42edd40b850656776853ea, type: 3}
       propertyPath: m_Name
       value: HUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 989024445558595804, guid: 20a6ea433c42edd40b850656776853ea, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 989024445558595804, guid: 20a6ea433c42edd40b850656776853ea, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 989024445558595804, guid: 20a6ea433c42edd40b850656776853ea, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 989024445558595804, guid: 20a6ea433c42edd40b850656776853ea, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3200041899299311436, guid: 20a6ea433c42edd40b850656776853ea, type: 3}
+      propertyPath: m_Type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3200041899299311436, guid: 20a6ea433c42edd40b850656776853ea, type: 3}
+      propertyPath: m_FillMethod
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
