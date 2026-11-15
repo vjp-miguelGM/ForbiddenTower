@@ -321,7 +321,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2517357080089806007, guid: 0a3fcbb5a6e95e247bf838a7e309cb01, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3877544224655853730, guid: 0a3fcbb5a6e95e247bf838a7e309cb01, type: 3}
       propertyPath: m_Pivot.x
@@ -48360,22 +48360,6 @@ PrefabInstance:
     - target: {fileID: 539475619569092818, guid: 20a6ea433c42edd40b850656776853ea, type: 3}
       propertyPath: m_Name
       value: HUD
-      objectReference: {fileID: 0}
-    - target: {fileID: 989024445558595804, guid: 20a6ea433c42edd40b850656776853ea, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 989024445558595804, guid: 20a6ea433c42edd40b850656776853ea, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 989024445558595804, guid: 20a6ea433c42edd40b850656776853ea, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 989024445558595804, guid: 20a6ea433c42edd40b850656776853ea, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
