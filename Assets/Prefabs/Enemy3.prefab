@@ -212,7 +212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovemnt
   speed: 4
   stopDistance: 2
-  spriteFacesRight: 1
+  spriteFacesRight: 0
 --- !u!114 &3018042867551645035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,3 +226,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth4
   maxHealth: 30
+  knockbackDuration: 0.25
