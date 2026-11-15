@@ -47606,7 +47606,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6627861310857910135, guid: e694f1d457c0a0146a2cdc93084d4d4f, type: 3}
       propertyPath: orthographic size
-      value: 4.96875
+      value: 4.65625
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -47731,6 +47731,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Recompensas
       objectReference: {fileID: 0}
+    - target: {fileID: 4961930377000985146, guid: 3f051087f6edf1f4f82216c7bbbe8baf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5911104695632968219, guid: 3f051087f6edf1f4f82216c7bbbe8baf, type: 3}
       propertyPath: upgradeManager
       value: 
@@ -47818,6 +47822,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2664796884140390534, guid: 3f051087f6edf1f4f82216c7bbbe8baf, type: 3}
+    - {fileID: 5700659473122981178, guid: 3f051087f6edf1f4f82216c7bbbe8baf, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f051087f6edf1f4f82216c7bbbe8baf, type: 3}
