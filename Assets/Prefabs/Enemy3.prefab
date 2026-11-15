@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 942fcb68663f2254d9a8103b646b097b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovemnt
-  speed: 4
+  speed: 2
   stopDistance: 2
   spriteFacesRight: 0
 --- !u!114 &3018042867551645035

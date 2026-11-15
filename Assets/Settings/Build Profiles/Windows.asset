@@ -20,7 +20,7 @@ MonoBehaviour:
     rid: 2347242168427741281
   m_ActivePlatformGuid: 
   m_AdditionalPlatformBuildSettings: []
-  m_OverrideGlobalSceneList: 0
+  m_OverrideGlobalSceneList: 1
   m_Scenes: []
   m_HasScriptingDefines: 0
   m_ScriptingDefines: []
@@ -30,6 +30,8 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 2347242168427741281
       type: {class: WindowsPlatformSettings, ns: UnityEditor.WindowsStandalone, asm: UnityEditor.WindowsStandalone.Extensions}
       data:

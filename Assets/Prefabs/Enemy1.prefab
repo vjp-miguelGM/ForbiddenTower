@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b828c25909e17e47a8050f057cafb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
-  damage: 4
+  damage: 2
   attackCooldown: 1.5
 --- !u!114 &-1861518261857749935
 MonoBehaviour:
@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   maxHealth: 20
-  currentHealth: 0
+  knockbackDuration: 0.5
 --- !u!114 &-7935782497851869251
 MonoBehaviour:
   m_ObjectHideFlags: 0
