@@ -152,8 +152,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1e69e30d92cea44ebd2aa55cad7676b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tower
-  maxHealth: 100
+  maxHealth: 300
   currentHealth: 0
   healthBarFill: {fileID: 0}
   destroyEffectPrefab: {fileID: 8738406909357075751, guid: 7b6c6223619bd3a42a019c358997849f, type: 3}
-  hudGameOver: {fileID: 0}
+  gameOverDelay: 1
+  damageMultiplier: 1

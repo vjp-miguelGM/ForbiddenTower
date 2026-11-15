@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
-using UnityEngine.InputSystem; // añádelo arriba del todo, con los otros using
+using UnityEngine.InputSystem;
+using UnityEngine.Serialization; // añádelo arriba del todo, con los otros using
 public class PlayerMoveControls : MonoBehaviour
 {
 
@@ -21,6 +22,8 @@ public class PlayerMoveControls : MonoBehaviour
     private bool grounded; //Para guardar si estamos tocando suelo o no
     public LayerMask enemyLayers;
     public float knockbackForce = 6f;
+    [FormerlySerializedAs("attackCooldaown")] public float attackCooldown = 0.5f;
+    private float nextAttackTime = 0f;
     
     private void Flip()
     {
@@ -78,8 +81,11 @@ public class PlayerMoveControls : MonoBehaviour
 
     private void Attack()
     {
+        if (Time.time < nextAttackTime) return; // todavía en cooldown
+
         if (Keyboard.current != null && Keyboard.current.fKey.wasPressedThisFrame)
         {
+            nextAttackTime = Time.time + attackCooldown;
             animator.SetTrigger("Attack");
 
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRadius, enemyLayers);
@@ -89,7 +95,6 @@ public class PlayerMoveControls : MonoBehaviour
                 if (enemyHealth != null)
                 {
                     enemyHealth.TakeDamage(daño);
-                    // Dirección: desde el player hacia el enemigo, solo en horizontal
                     float dir = Mathf.Sign(enemy.transform.position.x - transform.position.x);
                     enemyHealth.Knockback(new Vector2(dir, 0.3f), knockbackForce);
                 }

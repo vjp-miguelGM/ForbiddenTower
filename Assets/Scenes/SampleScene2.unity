@@ -92261,6 +92261,14 @@ PrefabInstance:
       propertyPath: enemyCountText
       value: 
       objectReference: {fileID: 2306732320299045977}
+    - target: {fileID: 9089617485345898890, guid: 0905f7308ae9e77489076ddd77bc56bd, type: 3}
+      propertyPath: maxEnemiesPerSpawner
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 9089617485345898890, guid: 0905f7308ae9e77489076ddd77bc56bd, type: 3}
+      propertyPath: baseEnemiesPerSpawner
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
