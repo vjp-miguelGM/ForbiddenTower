@@ -91997,6 +91997,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1507774022}
+    - target: {fileID: 812562725375332696, guid: 6cb2a9da83042ed488064893329468a5, type: 3}
+      propertyPath: jumpStep
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 812562725375332696, guid: 6cb2a9da83042ed488064893329468a5, type: 3}
+      propertyPath: damageStep
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7395847652085776757, guid: 6cb2a9da83042ed488064893329468a5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 260.6612
@@ -92261,6 +92269,14 @@ PrefabInstance:
       propertyPath: enemyCountText
       value: 
       objectReference: {fileID: 2306732320299045977}
+    - target: {fileID: 9089617485345898890, guid: 0905f7308ae9e77489076ddd77bc56bd, type: 3}
+      propertyPath: increasePerWave
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9089617485345898890, guid: 0905f7308ae9e77489076ddd77bc56bd, type: 3}
+      propertyPath: skipDifficultyBonus
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 9089617485345898890, guid: 0905f7308ae9e77489076ddd77bc56bd, type: 3}
       propertyPath: maxEnemiesPerSpawner
       value: 100
