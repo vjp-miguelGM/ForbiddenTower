@@ -26,6 +26,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void Exit()
+    {
+        Application.Quit();
+    }
     public void GameOver()
     {
         if (IsGameOver) return; // evita que se llame dos veces
