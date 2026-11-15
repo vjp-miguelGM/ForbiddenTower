@@ -1016,7 +1016,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2517357080089806007, guid: 0a3fcbb5a6e95e247bf838a7e309cb01, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3877544224655853730, guid: 0a3fcbb5a6e95e247bf838a7e309cb01, type: 3}
       propertyPath: m_Pivot.x
@@ -1112,8 +1112,37 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3877544224655853730, guid: 0a3fcbb5a6e95e247bf838a7e309cb01, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8150937699583314374}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2517357080089806007, guid: 0a3fcbb5a6e95e247bf838a7e309cb01, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5911104695632968219}
   m_SourcePrefab: {fileID: 100100000, guid: 0a3fcbb5a6e95e247bf838a7e309cb01, type: 3}
+--- !u!1 &4961930377000985146 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2517357080089806007, guid: 0a3fcbb5a6e95e247bf838a7e309cb01, type: 3}
+  m_PrefabInstance: {fileID: 7364268909325477517}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5911104695632968219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4961930377000985146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ad4bc3c737797f448cf8a89eeb629d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradePanel
+  optionButtons:
+  - {fileID: 3451457184029542983}
+  - {fileID: 6616859846540111555}
+  - {fileID: 7099632325418025524}
+  optionTexts:
+  - {fileID: 804167858783486832}
+  - {fileID: 2247927335939785137}
+  - {fileID: 5800855798485417458}
+  upgradeManager: {fileID: 0}
 --- !u!224 &6051974111162707503 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3877544224655853730, guid: 0a3fcbb5a6e95e247bf838a7e309cb01, type: 3}
