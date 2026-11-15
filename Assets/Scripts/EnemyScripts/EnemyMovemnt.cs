@@ -57,6 +57,7 @@ public class EnemyMovement : MonoBehaviour
         if (hasAnimator)
         {
             animator.SetFloat("Speed", Mathf.Abs(rb.linearVelocity.x));
+            animator.SetBool("Attacking", IsNearTarget());
         }
     }
 
