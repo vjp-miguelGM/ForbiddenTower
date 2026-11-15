@@ -10,6 +10,9 @@ public class Tower : MonoBehaviour
     public Image healthBarFill;
     public GameObject destroyEffectPrefab;   // prefab de partículas (Smoke)
     public float gameOverDelay = 1f;         // segundos para ver la explosión
+    
+    [HideInInspector] public float damageMultiplier = 1f;
+    public bool IsFullHealth => currentHealth >= maxHealth;
 
     private bool destroyed;
 
@@ -23,9 +26,11 @@ public class Tower : MonoBehaviour
     {
         if (destroyed) return;
 
-        currentHealth -= damage;
+        int finalDamage = Mathf.Max(1, Mathf.RoundToInt(damage * damageMultiplier));
+        currentHealth -= finalDamage;
         currentHealth = Mathf.Max(currentHealth, 0);
         UpdateHealthBar();
+        // ... el resto igual
 
         if (currentHealth <= 0)
         {
@@ -67,5 +72,19 @@ public class Tower : MonoBehaviour
         {
             healthBarFill.fillAmount = (float)currentHealth / maxHealth;
         }
+    }
+    
+    public void Heal(int amount)
+    {
+        if (destroyed) return;
+        currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
+        UpdateHealthBar();
+    }
+
+    public void IncreaseMaxHealth(int amount)
+    {
+        maxHealth += amount;
+        currentHealth += amount; // la barra no se queda más vacía de lo que estaba
+        UpdateHealthBar();
     }
 }
