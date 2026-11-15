@@ -108,6 +108,10 @@ public class PlayerMoveControls : MonoBehaviour
     void Update()
     {
         if (GameManager.Instance != null && GameManager.Instance.IsGameOver) return;
+        if (PauseManager.Instance != null && PauseManager.Instance.IsPaused) return;
+        {
+            
+        }
         SetAnimatorValues();
         Attack();
     }

@@ -28,6 +28,8 @@ public class WaveManager : MonoBehaviour
 
     // Rondas completadas: si la torre cae en la ronda 4, has superado 3
     public int WavesSurvived => Mathf.Max(0, CurrentWave - 1);
+    
+    public int EnemiesKilled { get; private set; }
 
     private int alive;            // enemigos vivos
     private int pendingToSpawn;   // enemigos que faltan por salir en esta ronda
@@ -143,6 +145,7 @@ public class WaveManager : MonoBehaviour
     public void EnemyDied()
     {
         alive--;
+        EnemiesKilled++;
         UpdateEnemyCount(); // resta uno por cada enemigo muerto
     }
 }
