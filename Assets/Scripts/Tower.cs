@@ -13,7 +13,8 @@ public class Tower : MonoBehaviour
     
     [HideInInspector] public float damageMultiplier = 1f;
     public bool IsFullHealth => currentHealth >= maxHealth;
-
+    
+    public bool IsDestroyed => destroyed;
     private bool destroyed;
 
     private void Awake()

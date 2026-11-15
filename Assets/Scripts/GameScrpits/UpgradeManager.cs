@@ -28,6 +28,8 @@ public class UpgradeManager : MonoBehaviour
     public float damageReductionPerLevel = 0.9f; // cada nivel multiplica el daño recibido por 0.9
     public float healPercent = 0.4f;             // cura el 40% de la vida máxima
     public int maxHealthStep = 20;
+    private int skippedStreak;
+    public int SkippedStreak => skippedStreak;
 
     // Mejoras de cada carta
     private readonly UpgradeType[][] pools =
@@ -104,21 +106,38 @@ public class UpgradeManager : MonoBehaviour
     public void Apply(int card)
     {
         UpgradeType type = current[card];
-        levels[(int)type]++;
 
-        switch (type)
+        int times = 1 + skippedStreak; // x2 si saltó una vez, x3 si dos...
+        skippedStreak = 0;             // al elegir mejora, vuelve a x1
+
+        for (int n = 0; n < times; n++)
         {
-            case UpgradeType.Damage:    player.daño += damageStep; break;
-            case UpgradeType.Range:     player.attackRadius = Mathf.Min(player.attackRadius + rangeStep, rangeMax); break;
-            case UpgradeType.Knockback: player.knockbackForce += knockbackStep; break;
-            case UpgradeType.Speed:     player.speed += speedStep; break;
-            case UpgradeType.Jump:      player.jumpForce += jumpStep; break;
+            // Respeta el máximo de velocidad y salto
+            if ((type == UpgradeType.Speed || type == UpgradeType.Jump)
+                && levels[(int)type] >= maxLevelSpeedJump) break;
 
-            case UpgradeType.TowerReduction: tower.damageMultiplier *= damageReductionPerLevel; break;
-            case UpgradeType.TowerHeal:      tower.Heal(Mathf.RoundToInt(tower.maxHealth * healPercent)); break;
-            case UpgradeType.TowerMaxHealth: tower.IncreaseMaxHealth(maxHealthStep); break;
+            levels[(int)type]++;
+
+            switch (type)
+            {
+                case UpgradeType.Damage:    player.daño += damageStep; break;
+                case UpgradeType.Range:     player.attackRadius = Mathf.Min(player.attackRadius + rangeStep, rangeMax); break;
+                case UpgradeType.Knockback: player.knockbackForce += knockbackStep; break;
+                case UpgradeType.Speed:     player.speed += speedStep; break;
+                case UpgradeType.Jump:      player.jumpForce += jumpStep; break;
+
+                case UpgradeType.TowerReduction: tower.damageMultiplier *= damageReductionPerLevel; break;
+                case UpgradeType.TowerHeal:      tower.Heal(Mathf.RoundToInt(tower.maxHealth * healPercent)); break;
+                case UpgradeType.TowerMaxHealth: tower.IncreaseMaxHealth(maxHealthStep); break;
+            }
         }
 
-        Debug.Log("Mejora aplicada: " + type + " (nivel " + levels[(int)type] + ")");
+        Debug.Log("Mejora aplicada: " + type + " x" + times + " (nivel " + levels[(int)type] + ")");
+    }
+
+    public void SkipReward()
+    {
+        skippedStreak++;
+        Debug.Log("Recompensa saltada. Multiplicador próximo: x" + (skippedStreak + 1));
     }
 }

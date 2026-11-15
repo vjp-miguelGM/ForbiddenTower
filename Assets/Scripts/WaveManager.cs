@@ -14,11 +14,11 @@ public class WaveManager : MonoBehaviour
     public int maxEnemiesPerSpawner = 15;   // tope para que no se dispare (0 = sin tope)
     public float timeBeforeFirstWave = 2f;
 
-    [Header("Entre rondas")]
-    public float timeInTowerToStart = 3f;   // (ya no se usa, se puede dejar)
-
     [Header("Mejoras")]
     public UpgradePanel upgradePanel;       // arrastra aquí el HUD de mejoras
+
+    [Header("Sin recompensa")]
+    public float skipDifficultyBonus = 0.5f;   // +50% enemigos la ronda siguiente
 
     [Header("HUD")]
     public TMP_Text objectiveText;          // arrastra aquí VolverTorre
@@ -28,13 +28,16 @@ public class WaveManager : MonoBehaviour
 
     // Rondas completadas: si la torre cae en la ronda 4, has superado 3
     public int WavesSurvived => Mathf.Max(0, CurrentWave - 1);
-    
+
     public int EnemiesKilled { get; private set; }
+
+    public EnemySpawner[] spawners;
 
     private int alive;            // enemigos vivos
     private int pendingToSpawn;   // enemigos que faltan por salir en esta ronda
-    public EnemySpawner[] spawners;
+    private bool nextWaveHarder;
     private TowerZone towerZone;
+    private Tower tower;
 
     private void Awake()
     {
@@ -46,9 +49,11 @@ public class WaveManager : MonoBehaviour
         // Recoge todos los spawns de la escena, da igual cómo se llamen
         spawners = FindObjectsByType<EnemySpawner>(FindObjectsSortMode.None);
         towerZone = FindFirstObjectByType<TowerZone>();
+        tower = FindFirstObjectByType<Tower>();
 
         if (spawners.Length == 0) Debug.LogWarning("WaveManager: no hay EnemySpawner en la escena");
         if (towerZone == null) Debug.LogWarning("WaveManager: falta el script TowerZone en la torre");
+        if (tower == null) Debug.LogWarning("WaveManager: no hay ninguna Tower en la escena");
 
         StartCoroutine(WaveLoop());
     }
@@ -67,10 +72,13 @@ public class WaveManager : MonoBehaviour
             // La ronda acaba cuando han salido todos y no queda ninguno vivo
             yield return new WaitUntil(() => pendingToSpawn <= 0 && alive <= 0);
 
+            // Si la torre cayó mientras tanto, no seguimos (sale el Game Over)
+            if (tower != null && tower.IsDestroyed) yield break;
+
             // Solo en modo finito: la última ronda termina el juego
             if (!infiniteWaves && CurrentWave == totalWaves)
             {
-                ShowObjective(""); // última ronda: sin mensaje
+                ShowObjective("");
                 break;
             }
 
@@ -80,14 +88,17 @@ public class WaveManager : MonoBehaviour
             // 1) Esperar a que el player llegue a la torre
             yield return new WaitUntil(() => towerZone != null && towerZone.PlayerInside);
 
-            // 2) Mostrar el panel de mejoras y esperar a que elija una
+            if (tower != null && tower.IsDestroyed) yield break;
+
+            // 2) Mostrar el panel de mejoras y esperar a que elija una (o salte la recompensa)
             ShowObjective("");
             if (upgradePanel != null)
             {
                 bool chosen = false;
                 upgradePanel.Show(index =>
                 {
-                    Debug.Log("Mejora elegida: " + index);
+                    nextWaveHarder = (index < 0); // -1 = ha saltado la recompensa
+                    Debug.Log(index < 0 ? "Sin recompensa: próxima ronda más dura" : "Mejora elegida: " + index);
                     chosen = true;
                 });
                 yield return new WaitUntil(() => chosen);
@@ -104,6 +115,12 @@ public class WaveManager : MonoBehaviour
     {
         int perSpawner = baseEnemiesPerSpawner + (CurrentWave - 1) * increasePerWave;
         if (maxEnemiesPerSpawner > 0) perSpawner = Mathf.Min(perSpawner, maxEnemiesPerSpawner);
+
+        if (nextWaveHarder)
+        {
+            perSpawner = Mathf.CeilToInt(perSpawner * (1f + skipDifficultyBonus));
+            nextWaveHarder = false;
+        }
 
         pendingToSpawn = perSpawner * spawners.Length;
         UpdateEnemyCount(); // muestra el total de la horda al empezar
