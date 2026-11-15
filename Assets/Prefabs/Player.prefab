@@ -193,7 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMoveControls
   speed: 4
   jumpForce: 5
-  "da\xF1o": 6
+  "da\xF1o": 8
   attackRadius: 1
   attackPoint: {fileID: 1553964810663849599}
   rayLength: 0.5
