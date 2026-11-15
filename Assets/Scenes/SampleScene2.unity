@@ -47964,17 +47964,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1e69e30d92cea44ebd2aa55cad7676b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tower
---- !u!114 &1811195150 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6518562217785176890, guid: 3f051087f6edf1f4f82216c7bbbe8baf, type: 3}
-  m_PrefabInstance: {fileID: 8099307893481483450}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ad4bc3c737797f448cf8a89eeb629d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UpgradePanel
 --- !u!114 &1826048079 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2143043372156414396, guid: 20a6ea433c42edd40b850656776853ea, type: 3}
@@ -48439,7 +48428,7 @@ PrefabInstance:
     - target: {fileID: 9089617485345898890, guid: 0905f7308ae9e77489076ddd77bc56bd, type: 3}
       propertyPath: upgradePanel
       value: 
-      objectReference: {fileID: 1811195150}
+      objectReference: {fileID: 0}
     - target: {fileID: 9089617485345898890, guid: 0905f7308ae9e77489076ddd77bc56bd, type: 3}
       propertyPath: objectiveText
       value: 
